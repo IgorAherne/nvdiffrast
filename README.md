@@ -8,7 +8,7 @@ Steps:
 2) Make sure you have Visual Studio 2022.
 3) create a virtual environment: `python -m venv venv` then activate it: `.\venv\Scripts\activate`
 4) Verify that python is exactly 3.11.<br>
-   If not, remove the `venv` folder and redo like so: `& "C:\Program Files\PATH-TO-YOUR-PYTHON\Python311\python.exe" -m venv venv` and activate it `.\venv\Scripts\activate`
+   If not, remove the `venv` folder and redo like so: `& "C:\Program Files\PATH-TO-YOUR-PYTHON\Python311\python.exe" -m venv venv` **and activate it again** `.\venv\Scripts\activate`
 
 5) If doing through powershell / vscode terminal, ensure environment variables are setup, so that cuda and the visual studio can be found.
    <br>So, check the filepaths make sense/exist on your pc. Then, write inside the terminal:
@@ -17,6 +17,8 @@ Steps:
 
    Also, setup the env variables by running:
    `& "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"`
+
+6) This should have made `cl.exe` discoverable, which is important for compilation.
 
 6) `pip install torch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 --index-url https://download.pytorch.org/whl/cu118`
 7) `python setup.py clean`
