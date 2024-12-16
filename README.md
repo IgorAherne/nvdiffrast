@@ -1,3 +1,25 @@
+still adjusting...
+
+When completed, this fork will allow to build a .whl for windows cuda 11.8
+
+Steps,
+
+1) Make sure Cuda Toolkit is installed, v 11.8
+2) Make sure you have Visual Studio 2022.
+3) If doing through powershell / vscode terminal, ensure environment variables are setup, so that cuda and the visual studio can be found:
+   `$Env:CUDA_HOME="C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8"`
+   `$Env:PATH="$Env:PATH;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\bin\Hostx86\x64"`
+
+   Also, setup the env variables by running:
+   `& "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"`
+
+4) create a virtual environment: `python -m venv venv` then activate it: `.\venv\Scripts\activate`
+5) `pip install torch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 --index-url https://download.pytorch.org/whl/cu118`
+6) `python setup.py clean`
+7) `python setup.py build_ext --inplace -v`
+
+Original repo description:
+
 ## Nvdiffrast &ndash; Modular Primitives for High-Performance Differentiable Rendering
 
 ![Teaser image](./docs/img/teaser.png)
