@@ -144,8 +144,6 @@ setuptools.setup(
             define_macros=[
                 ('TORCH_EXTENSION_NAME', '"_C"'),
                 ('NVDR_USE_TORCH', None),
-                ('NVDR_CTX_ARGS', None),
-                ('NVDR_CTX_PARAMS', None),
                 ('TORCH_API_INCLUDE_EXTENSION_H', None),
                 ('USE_PYTHON', None),
                 ('NVDR_TORCH', None), # Add this

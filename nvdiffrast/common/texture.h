@@ -71,8 +71,11 @@ struct TextureKernelParams
 //------------------------------------------------------------------------
 // C++ helper function prototypes.
 
+#ifndef __CUDACC__ 
+//host-only functions are wrapped in this ifndef, so they are not visible to the device code
 void raiseMipSizeError(NVDR_CTX_ARGS, const TextureKernelParams& p);
 int calculateMipInfo(NVDR_CTX_ARGS, TextureKernelParams& p, int* mipOffsets);
+#endif
 
 //------------------------------------------------------------------------
 // Macros.
