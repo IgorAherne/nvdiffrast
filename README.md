@@ -18,6 +18,8 @@ Steps:
    Also, setup the env variables by running:
    `& "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"`
 
+   Note the `\x64` and the `64` in the above 2 commands. We'll be building for x64.
+
 6) This should have made `cl.exe` discoverable, which is important for compilation.
 
 6) `pip install torch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 --index-url https://download.pytorch.org/whl/cu118`
