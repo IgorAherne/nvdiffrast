@@ -7,7 +7,10 @@ Steps:
 1) Make sure Cuda Toolkit is installed, v 11.8
 2) Make sure you have Visual Studio 2022.
 3) create a virtual environment: `python -m venv venv` then activate it: `.\venv\Scripts\activate`
-4) If doing through powershell / vscode terminal, ensure environment variables are setup, so that cuda and the visual studio can be found.
+4) Verify that python is exactly 3.11.<br>
+   If not, remove the `venv` folder and redo like so: `& "C:\Program Files\PATH-TO-YOUR-PYTHON\Python311\python.exe" -m venv venv` and activate it `.\venv\Scripts\activate`
+
+5) If doing through powershell / vscode terminal, ensure environment variables are setup, so that cuda and the visual studio can be found.
    <br>So, check the filepaths make sense/exist on your pc. Then, write inside the terminal:
    `$Env:CUDA_HOME="C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8"`
    `$Env:PATH="$Env:PATH;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\bin\Hostx86\x64"`
@@ -15,11 +18,15 @@ Steps:
    Also, setup the env variables by running:
    `& "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"`
 
-5) `pip install torch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 --index-url https://download.pytorch.org/whl/cu118`
-6) `python setup.py clean`
-7) `python setup.py build_ext --inplace -v`
+6) `pip install torch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 --index-url https://download.pytorch.org/whl/cu118`
+7) `python setup.py clean`
+8) `python setup.py build_ext --inplace -v`
+
+   now you should have a `.whl` for nvdiffrast, which can be easily used by Windows users, with Cuda 11.8 and Python 3.11
 
 Original repo description:
+
+--------------------------------
 
 ## Nvdiffrast &ndash; Modular Primitives for High-Performance Differentiable Rendering
 
