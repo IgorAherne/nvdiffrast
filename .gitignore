@@ -12,6 +12,9 @@
 /venv*
 /tmp*
 /temp*
+build/
+*.egg-info/
+dist/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
