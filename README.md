@@ -1,4 +1,6 @@
-When completed, this fork will allow to build a `.whl` for windows, cuda 11.8
+Allows to build a `.whl` for windows, cuda 11.8<br>
+This way, users don't need to have VisualStudio nor Cuda Toolkit installed.<br>
+They can just use this wheel after pulling it via pip.
 
 Steps:
 
