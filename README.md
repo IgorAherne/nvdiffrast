@@ -22,11 +22,22 @@ Steps:
 
 6) This should have made `cl.exe` discoverable, which is important for compilation.
 
-6) `pip install torch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 --index-url https://download.pytorch.org/whl/cu118`
-7) `python setup.py clean`
-8) `python setup.py build_ext --inplace -v`
+7) `pip install torch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 --index-url https://download.pytorch.org/whl/cu118`
+
+build the .pyd:
+
+8) `python setup.py clean`
+9) `python setup.py build_ext --inplace -v`
+10) once the build has succeeded, you should see a file `nvdiffrast/_C.cp311-win_amd64.pyd`
+
+If you have this .pyd file, it's time to build the wheel file: 
+
+11) `pip install wheel`
+12) `pip install --upgrade wheel`
+13) `python setup.py bdist_wheel`
 
    now you should have a `.whl` for nvdiffrast, which can be easily used by Windows users, with Cuda 11.8 and Python 3.11
+   The file will be inside folder `dist/` . The file will be called `nvdiffrast-0.3.3-cp311-cp311-win_amd64.whl`
 
 Original repo description:
 
