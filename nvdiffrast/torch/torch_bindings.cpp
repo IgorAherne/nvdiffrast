@@ -40,34 +40,35 @@ OP_RETURN_TT        antialias_grad                      (torch::Tensor color, to
 
 //------------------------------------------------------------------------
 
-PYBIND11_MODULE(TORCH_EXTENSION_NAME, m) {
-    // State classes.
-    pybind11::class_<RasterizeCRStateWrapper>(m, "RasterizeCRStateWrapper").def(pybind11::init<int>());
-    pybind11::class_<TextureMipWrapper>(m, "TextureMipWrapper").def(pybind11::init<>());
-    pybind11::class_<TopologyHashWrapper>(m, "TopologyHashWrapper");
-
-    // Plumbing to torch/c10 logging system.
-    m.def("get_log_level", [](void)     { return FLAGS_caffe2_log_level;  }, "get log level");
-    m.def("set_log_level", [](int level){ FLAGS_caffe2_log_level = level; }, "set log level");
-
-    // Ops.
-    m.def("rasterize_fwd_cuda",                 &rasterize_fwd_cuda,                    "rasterize forward op (cuda)");
-    m.def("rasterize_grad",                     &rasterize_grad,                        "rasterize gradient op ignoring db gradients");
-    m.def("rasterize_grad_db",                  &rasterize_grad_db,                     "rasterize gradient op with db gradients");
-    m.def("interpolate_fwd",                    &interpolate_fwd,                       "interpolate forward op with attribute derivatives");
-    m.def("interpolate_fwd_da",                 &interpolate_fwd_da,                    "interpolate forward op without attribute derivatives");
-    m.def("interpolate_grad",                   &interpolate_grad,                      "interpolate gradient op with attribute derivatives");
-    m.def("interpolate_grad_da",                &interpolate_grad_da,                   "interpolate gradient op without attribute derivatives");
-    m.def("texture_construct_mip",              &texture_construct_mip,                 "texture mipmap construction");
-    m.def("texture_fwd",                        &texture_fwd,                           "texture forward op without mipmapping");
-    m.def("texture_fwd_mip",                    &texture_fwd_mip,                       "texture forward op with mipmapping");
-    m.def("texture_grad_nearest",               &texture_grad_nearest,                  "texture gradient op in nearest mode");
-    m.def("texture_grad_linear",                &texture_grad_linear,                   "texture gradient op in linear mode");
-    m.def("texture_grad_linear_mipmap_nearest", &texture_grad_linear_mipmap_nearest,    "texture gradient op in linear-mipmap-nearest mode");
-    m.def("texture_grad_linear_mipmap_linear",  &texture_grad_linear_mipmap_linear,     "texture gradient op in linear-mipmap-linear mode");
-    m.def("antialias_construct_topology_hash",  &antialias_construct_topology_hash,     "antialias topology hash construction");
-    m.def("antialias_fwd",                      &antialias_fwd,                         "antialias forward op");
-    m.def("antialias_grad",                     &antialias_grad,                        "antialias gradient op");
-}
+// commented out in cpp now, to try resolve duplicate  (PYBIND11_MODULE is already defined in torch_bingings_gl.cpp)
+// PYBIND11_MODULE(TORCH_EXTENSION_NAME, m) {
+//     // State classes.
+//     pybind11::class_<RasterizeCRStateWrapper>(m, "RasterizeCRStateWrapper").def(pybind11::init<int>());
+//     pybind11::class_<TextureMipWrapper>(m, "TextureMipWrapper").def(pybind11::init<>());
+//     pybind11::class_<TopologyHashWrapper>(m, "TopologyHashWrapper");
+// 
+//     // Plumbing to torch/c10 logging system.
+//     m.def("get_log_level", [](void)     { return FLAGS_caffe2_log_level;  }, "get log level");
+//     m.def("set_log_level", [](int level){ FLAGS_caffe2_log_level = level; }, "set log level");
+// 
+//     // Ops.
+//     m.def("rasterize_fwd_cuda",                 &rasterize_fwd_cuda,                    "rasterize forward op (cuda)");
+//     m.def("rasterize_grad",                     &rasterize_grad,                        "rasterize gradient op ignoring db gradients");
+//     m.def("rasterize_grad_db",                  &rasterize_grad_db,                     "rasterize gradient op with db gradients");
+//     m.def("interpolate_fwd",                    &interpolate_fwd,                       "interpolate forward op with attribute derivatives");
+//     m.def("interpolate_fwd_da",                 &interpolate_fwd_da,                    "interpolate forward op without attribute derivatives");
+//     m.def("interpolate_grad",                   &interpolate_grad,                      "interpolate gradient op with attribute derivatives");
+//     m.def("interpolate_grad_da",                &interpolate_grad_da,                   "interpolate gradient op without attribute derivatives");
+//     m.def("texture_construct_mip",              &texture_construct_mip,                 "texture mipmap construction");
+//     m.def("texture_fwd",                        &texture_fwd,                           "texture forward op without mipmapping");
+//     m.def("texture_fwd_mip",                    &texture_fwd_mip,                       "texture forward op with mipmapping");
+//     m.def("texture_grad_nearest",               &texture_grad_nearest,                  "texture gradient op in nearest mode");
+//     m.def("texture_grad_linear",                &texture_grad_linear,                   "texture gradient op in linear mode");
+//     m.def("texture_grad_linear_mipmap_nearest", &texture_grad_linear_mipmap_nearest,    "texture gradient op in linear-mipmap-nearest mode");
+//     m.def("texture_grad_linear_mipmap_linear",  &texture_grad_linear_mipmap_linear,     "texture gradient op in linear-mipmap-linear mode");
+//     m.def("antialias_construct_topology_hash",  &antialias_construct_topology_hash,     "antialias topology hash construction");
+//     m.def("antialias_fwd",                      &antialias_fwd,                         "antialias forward op");
+//     m.def("antialias_grad",                     &antialias_grad,                        "antialias gradient op");
+// }
 
 //------------------------------------------------------------------------

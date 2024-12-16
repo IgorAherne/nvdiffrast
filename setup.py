@@ -22,18 +22,14 @@ cpp_sources = [
     "nvdiffrast/common/common.cpp",
     "nvdiffrast/common/glutil.cpp",
 
-     #This error occurs because both RasterImpl.cpp and RasterImpl.cu produce the same output object file name RasterImpl.obj.
-    #  On Windows, by default, both a .cpp and .cu file with the same base name (e.g. RasterImpl) 
-    # will compile to the same .obj file, causing a conflict. So, keep the following line comented-out:
-    # "nvdiffrast/common/texture.cpp",
+    "nvdiffrast/common/texture_cpu.cpp",
 
     # CudaRaster CPU C++ implementation
     "nvdiffrast/common/cudaraster/impl/Buffer.cpp",
     "nvdiffrast/common/cudaraster/impl/CudaRaster.cpp",
-    #This error occurs because both RasterImpl.cpp and RasterImpl.cu produce the same output object file name RasterImpl.obj.
-    #  On Windows, by default, both a .cpp and .cu file with the same base name (e.g. RasterImpl) 
-    # will compile to the same .obj file, causing a conflict. So, keep the following line comented-out:
-    # "nvdiffrast/common/cudaraster/impl/RasterImpl.cpp",
+    "nvdiffrast/common/cudaraster/impl/RasterImpl_cpu.cpp",
+    
+    "nvdiffrast/common/rasterize_gl.cpp"
 ]
 
 cuda_sources = [
@@ -75,8 +71,6 @@ nvcc_flags = [
     '--expt-relaxed-constexpr',
     '--allow-unsupported-compiler',  #else my VisualStudio 2022 isn't recognized.
     '-DNVDR_USE_TORCH',
-    '-DNVDR_CTX_ARGS',
-    '-DNVDR_CTX_PARAMS',
     # Add arch for Pascal, Turing, Ampere, Ada
     '-gencode=arch=compute_61,code=sm_61',
     '-gencode=arch=compute_75,code=sm_75',
@@ -135,6 +129,8 @@ setuptools.setup(
             'nvdiffrast._C',
             sources=all_sources,
             include_dirs=include_dirs,
+            library_dirs=['nvdiffrast/lib'],  # the path to the directory containing setgpu.lib
+            libraries=['setgpu'],  # Specify the name of the library (without the .lib extension)
             extra_compile_args={
                 'cxx': extra_cxx_flags,
                 'nvcc': nvcc_flags
