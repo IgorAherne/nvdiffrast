@@ -9,6 +9,10 @@
 #pragma once
 #include "framework.h"
 
+#include <cmath>
+#include <algorithm>
+#include <vector>
+
 //------------------------------------------------------------------------
 // Constants.
 

@@ -9,6 +9,10 @@
 #include "common.h"
 #include "texture.h"
 
+#include <cmath>
+#include <algorithm>
+#include <vector>
+
 //------------------------------------------------------------------------
 // Memory access and math helpers.
 

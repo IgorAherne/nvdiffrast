@@ -8,6 +8,10 @@
 
 #pragma once
 
+#include <ATen/ATen.h>
+#include <ATen/ArrayRef.h>
+#include <torch/extension.h>
+
 // Framework-specific macros to enable code sharing.
 
 //------------------------------------------------------------------------

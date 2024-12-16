@@ -48,6 +48,13 @@ const char* getGLErrorString(GLenum err)
 
 #ifdef _WIN32
 
+
+#undef LOG
+#define LOG(x) std::cerr
+#define FATAL std::endl
+#define INFO std::endl
+
+
 static CRITICAL_SECTION getInitializedCriticalSection(void)
 {
     CRITICAL_SECTION cs;
