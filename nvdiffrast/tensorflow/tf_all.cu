@@ -28,7 +28,7 @@
 #include "../common/interpolate.cu"
 #include "tf_interpolate.cu"
 
-#include "../common/texture.cpp"
+#include "../common/texture_cpu.cpp"
 #include "../common/texture.cu"
 #include "tf_texture.cu"
 
