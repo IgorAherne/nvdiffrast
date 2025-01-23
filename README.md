@@ -12,7 +12,11 @@ Steps:
 
 5) If doing through powershell / vscode terminal, ensure environment variables are setup, so that cuda and the visual studio can be found.
    <br>So, check the filepaths make sense/exist on your pc. Then, write inside the terminal:
+
    `$Env:CUDA_HOME="C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8"`
+
+   `$Env:PATH = "$Env:PATH;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\bin"`
+
    `$Env:PATH="$Env:PATH;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\bin\Hostx86\x64"`
 
    Also, setup the env variables by running:
