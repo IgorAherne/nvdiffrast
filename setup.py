@@ -72,12 +72,19 @@ nvcc_flags = [
     '--allow-unsupported-compiler',  #else my VisualStudio 2022 isn't recognized.
     '-DNVDR_USE_TORCH',
     # Add arch for Pascal, Turing, Ampere, Ada
-    '-gencode=arch=compute_61,code=sm_61',
+    '-gencode=arch=compute_52,code=sm_52',
+    '-gencode=arch=compute_60,code=sm_60',
+    '-gencode=arch=compute_61,code=sm_61', # GTX 1080, etc.
+    '-gencode=arch=compute_70,code=sm_70',
     '-gencode=arch=compute_75,code=sm_75',
-    '-gencode=arch=compute_86,code=sm_86',
-    '-gencode=arch=compute_89,code=sm_89',
-    '-gencode=arch=compute_89,code=compute_89'
+    '-gencode=arch=compute_80,code=sm_80',
+    '-gencode=arch=compute_86,code=sm_86', # RTX 3090, etc.
+    '-gencode=arch=compute_89,code=sm_89', # RTX 4090, etc. 
+    '-gencode=arch=compute_90,code=sm_90', # RTX 5000 series, etc.
+    '-gencode=arch=compute_90,code=compute_90',
 ]
+
+os.environ['TORCH_CUDA_ARCH_LIST'] = '5.2;6.0;6.1;7.0;7.5;8.0;8.6;8.9;9.0'
 
 # Read version from __init__.py
 version = None
