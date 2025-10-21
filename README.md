@@ -15,11 +15,11 @@ Steps:
 
    `$Env:CUDA_HOME="C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8"`<br>
    or for cmd do `set CUDA_HOME=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8` without the quotation marks<br>
-   (update v11.8 to v12.8 if you have another cuda version)
+   (change v11.8 to v12.8 if you have another cuda version)
 
    `$Env:PATH = "$Env:PATH;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\bin"`<br>
    or for cmd do `set PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\bin;%PATH%` without the quotation marks.<br>
-   (update v11.8 to v12.8 if you have another cuda version)
+   (change v11.8 to v12.8 if you have another cuda version)
 
    `$Env:PATH="$Env:PATH;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\bin\Hostx86\x64"`
    or for cmd do `set PATH=C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\bin\Hostx86\x64;%PATH%` without quotation marks.
