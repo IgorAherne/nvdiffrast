@@ -13,21 +13,26 @@ Steps:
 5) If doing through powershell / vscode terminal, ensure environment variables are setup, so that cuda and the visual studio can be found.
    <br>So, check the filepaths make sense/exist on your pc. Then, write inside the terminal:
 
-   `$Env:CUDA_HOME="C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8"`
+   `$Env:CUDA_HOME="C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8"`<br>
+   or for cmd do `set CUDA_HOME=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8` without the quotation marks<br>
+   (update v11.8 to v12.8 if you have another cuda version)
 
-   `$Env:PATH = "$Env:PATH;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\bin"`
+   `$Env:PATH = "$Env:PATH;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\bin"`<br>
+   or for cmd do `set PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\bin;%PATH%` without the quotation marks.<br>
+   (update v11.8 to v12.8 if you have another cuda version)
 
    `$Env:PATH="$Env:PATH;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\bin\Hostx86\x64"`
+   or for cmd do `set PATH=C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\bin\Hostx86\x64;%PATH%` without quotation marks.
 
    Also, setup the env variables by running:
    `& "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"`
 
    Note the `\x64` and the `64` in the above 2 commands. We'll be building for x64.
 
-6) This should have made `cl.exe` discoverable, which is important for compilation.
+7) This should have made `cl.exe` discoverable, which is important for compilation.
 
-7) `pip install torch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 --index-url https://download.pytorch.org/whl/cu118`
-8) `pip install ninja`
+8) `pip install torch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 --index-url https://download.pytorch.org/whl/cu118`
+9) `pip install ninja`
 
 build the .pyd:
 
