@@ -1,0 +1,20 @@
+# ninja log v5
+10	557	7700868244309734	C:/_myDrive/repos/nvdiffrast/build/temp.win-amd64-cpython-311/Release/nvdiffrast/common/common.obj	3de386f4ff66e90d
+14	573	7700868244491127	C:/_myDrive/repos/nvdiffrast/build/temp.win-amd64-cpython-311/Release/nvdiffrast/common/cudaraster/impl/CudaRaster.obj	8bef61a0d3799577
+31	48147	7700868714417403	C:/_myDrive/repos/nvdiffrast/build/temp.win-amd64-cpython-311/Release/nvdiffrast/torch/torch_antialias.obj	5a170d0881815adf
+23	50332	7700868740330607	C:/_myDrive/repos/nvdiffrast/build/temp.win-amd64-cpython-311/Release/nvdiffrast/common/rasterize.obj	58b0fcbc2e4f9555
+8	50345	7700868740330607	C:/_myDrive/repos/nvdiffrast/build/temp.win-amd64-cpython-311/Release/nvdiffrast/common/antialias.obj	8bd0a1579c6bd3f9
+22	50347	7700868740330607	C:/_myDrive/repos/nvdiffrast/build/temp.win-amd64-cpython-311/Release/nvdiffrast/common/interpolate.obj	fb3e98b02876573e
+16	62539	7700868863220622	C:/_myDrive/repos/nvdiffrast/build/temp.win-amd64-cpython-311/Release/nvdiffrast/common/cudaraster/impl/RasterImpl.obj	334761e1ceca2e62
+12	63950	7700868877494029	C:/_myDrive/repos/nvdiffrast/build/temp.win-amd64-cpython-311/Release/nvdiffrast/common/cudaraster/impl/Buffer.obj	46d1bc7c47cbad89
+43	64006	7700868877667622	C:/_myDrive/repos/nvdiffrast/build/temp.win-amd64-cpython-311/Release/nvdiffrast/torch/torch_texture.obj	f83e708d1975285e
+29	64026	7700868877667622	C:/_myDrive/repos/nvdiffrast/build/temp.win-amd64-cpython-311/Release/nvdiffrast/common/texture_cpu.obj	6929d770c07b98bc
+38	64062	7700868878233487	C:/_myDrive/repos/nvdiffrast/build/temp.win-amd64-cpython-311/Release/nvdiffrast/torch/torch_rasterize.obj	be6e153008daf635
+40	64339	7700868881823086	C:/_myDrive/repos/nvdiffrast/build/temp.win-amd64-cpython-311/Release/nvdiffrast/torch/torch_rasterize_gl.obj	f86828d0d7c2166f
+20	64604	7700868884475133	C:/_myDrive/repos/nvdiffrast/build/temp.win-amd64-cpython-311/Release/nvdiffrast/common/glutil.obj	4081d7fee606b86b
+33	64776	7700868886193294	C:/_myDrive/repos/nvdiffrast/build/temp.win-amd64-cpython-311/Release/nvdiffrast/torch/torch_bindings.obj	fddf0625763525df
+18	64856	7700868887028291	C:/_myDrive/repos/nvdiffrast/build/temp.win-amd64-cpython-311/Release/nvdiffrast/common/cudaraster/impl/RasterImpl_cpu.obj	2b72bead5d2b4318
+36	65045	7700868888932350	C:/_myDrive/repos/nvdiffrast/build/temp.win-amd64-cpython-311/Release/nvdiffrast/torch/torch_interpolate.obj	c7181c31d59cff5d
+25	66559	7700868904089317	C:/_myDrive/repos/nvdiffrast/build/temp.win-amd64-cpython-311/Release/nvdiffrast/common/rasterize_gl.obj	b8d66f56a0d9765a
+35	67766	7700868916222924	C:/_myDrive/repos/nvdiffrast/build/temp.win-amd64-cpython-311/Release/nvdiffrast/torch/torch_bindings_gl.obj	c2fc4e765824f2b
+27	185879	7700870096883914	C:/_myDrive/repos/nvdiffrast/build/temp.win-amd64-cpython-311/Release/nvdiffrast/common/texture.obj	fec5cd8ded239f42

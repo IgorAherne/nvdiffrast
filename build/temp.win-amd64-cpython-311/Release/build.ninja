@@ -1,0 +1,54 @@
+ninja_required_version = 1.3
+cxx = cl
+nvcc = C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\bin\nvcc
+
+cflags = /nologo /O2 /W3 /GL /DNDEBUG /MD /MD /wd4819 /wd4251 /wd4244 /wd4267 /wd4275 /wd4018 /wd4190 /wd4624 /wd4067 /wd4068 /EHsc -DTORCH_EXTENSION_NAME="_C" -DNVDR_USE_TORCH -DTORCH_API_INCLUDE_EXTENSION_H -DUSE_PYTHON -DNVDR_TORCH -Invdiffrast/common -Invdiffrast/common/cudaraster -Invdiffrast/common/cudaraster/impl -Invdiffrast/torch -IC:\_myDrive\repos\trellis-spz\code\venv\Lib\site-packages\torch\include -IC:\_myDrive\repos\trellis-spz\code\venv\Lib\site-packages\torch\include\torch\csrc\api\include -IC:\_myDrive\repos\trellis-spz\code\venv\Lib\site-packages\torch\include\TH -IC:\_myDrive\repos\trellis-spz\code\venv\Lib\site-packages\torch\include\THC -IC:\_myDrive\repos\trellis-spz\code\venv\Lib\site-packages\torch\include -IC:\_myDrive\repos\trellis-spz\code\venv\Lib\site-packages\torch\include\torch\csrc\api\include "-IC:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\include" -IC:\_myDrive\repos\trellis-spz\code\venv\include -IC:\Users\Igor\AppData\Local\Programs\Python\Python311\include -IC:\Users\Igor\AppData\Local\Programs\Python\Python311\Include "-IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include" "-IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include" "-IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" "-IC:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt" "-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um" "-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared" "-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\winrt" "-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\cppwinrt" "-IC:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"
+post_cflags = /std:c++17 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_C -D_GLIBCXX_USE_CXX11_ABI=0
+cuda_cflags = -std=c++17 --use-local-env -Xcompiler /MD -Xcompiler /wd4819 -Xcompiler /wd4251 -Xcompiler /wd4244 -Xcompiler /wd4267 -Xcompiler /wd4275 -Xcompiler /wd4018 -Xcompiler /wd4190 -Xcompiler /wd4624 -Xcompiler /wd4067 -Xcompiler /wd4068 -Xcompiler /EHsc -Xcudafe --diag_suppress=base_class_has_different_dll_interface -Xcudafe --diag_suppress=field_without_dll_interface -Xcudafe --diag_suppress=dll_interface_conflict_none_assumed -Xcudafe --diag_suppress=dll_interface_conflict_dllexport_assumed -DTORCH_EXTENSION_NAME="_C" -DNVDR_USE_TORCH -DTORCH_API_INCLUDE_EXTENSION_H -DUSE_PYTHON -DNVDR_TORCH -Invdiffrast/common -Invdiffrast/common/cudaraster -Invdiffrast/common/cudaraster/impl -Invdiffrast/torch -IC:\_myDrive\repos\trellis-spz\code\venv\Lib\site-packages\torch\include -IC:\_myDrive\repos\trellis-spz\code\venv\Lib\site-packages\torch\include\torch\csrc\api\include -IC:\_myDrive\repos\trellis-spz\code\venv\Lib\site-packages\torch\include\TH -IC:\_myDrive\repos\trellis-spz\code\venv\Lib\site-packages\torch\include\THC -IC:\_myDrive\repos\trellis-spz\code\venv\Lib\site-packages\torch\include -IC:\_myDrive\repos\trellis-spz\code\venv\Lib\site-packages\torch\include\torch\csrc\api\include "-IC:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\include" -IC:\_myDrive\repos\trellis-spz\code\venv\include -IC:\Users\Igor\AppData\Local\Programs\Python\Python311\include -IC:\Users\Igor\AppData\Local\Programs\Python\Python311\Include "-IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include" "-IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include" "-IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" "-IC:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt" "-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um" "-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared" "-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\winrt" "-IC:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\cppwinrt" "-IC:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"
+cuda_post_cflags = -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --use_fast_math -O3 --expt-relaxed-constexpr --allow-unsupported-compiler -DNVDR_USE_TORCH -gencode=arch=compute_52,code=sm_52 -gencode=arch=compute_60,code=sm_60 -gencode=arch=compute_61,code=sm_61 -gencode=arch=compute_70,code=sm_70 -gencode=arch=compute_75,code=sm_75 -gencode=arch=compute_80,code=sm_80 -gencode=arch=compute_86,code=sm_86 -gencode=arch=compute_89,code=sm_89 -gencode=arch=compute_90,code=sm_90 -gencode=arch=compute_90,code=compute_90 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_C -D_GLIBCXX_USE_CXX11_ABI=0
+cuda_dlink_post_cflags = 
+sycl_dlink_post_cflags = 
+ldflags = 
+
+rule compile
+  command = cl /showIncludes $cflags -c $in /Fo$out $post_cflags
+  deps = msvc
+
+rule cuda_compile
+  depfile = $out.d
+  deps = gcc
+  command = $nvcc --generate-dependencies-with-compile --dependency-output $out.d $cuda_cflags -c $in -o $out $cuda_post_cflags
+
+
+
+
+
+
+
+build C$:\_myDrive\repos\nvdiffrast\build\temp.win-amd64-cpython-311\Release\nvdiffrast/common/antialias.obj: cuda_compile C$:\_myDrive\repos\nvdiffrast\nvdiffrast\common\antialias.cu
+build C$:\_myDrive\repos\nvdiffrast\build\temp.win-amd64-cpython-311\Release\nvdiffrast/common/common.obj: compile C$:\_myDrive\repos\nvdiffrast\nvdiffrast\common\common.cpp
+build C$:\_myDrive\repos\nvdiffrast\build\temp.win-amd64-cpython-311\Release\nvdiffrast/common/cudaraster/impl/Buffer.obj: compile C$:\_myDrive\repos\nvdiffrast\nvdiffrast\common\cudaraster\impl\Buffer.cpp
+build C$:\_myDrive\repos\nvdiffrast\build\temp.win-amd64-cpython-311\Release\nvdiffrast/common/cudaraster/impl/CudaRaster.obj: compile C$:\_myDrive\repos\nvdiffrast\nvdiffrast\common\cudaraster\impl\CudaRaster.cpp
+build C$:\_myDrive\repos\nvdiffrast\build\temp.win-amd64-cpython-311\Release\nvdiffrast/common/cudaraster/impl/RasterImpl.obj: cuda_compile C$:\_myDrive\repos\nvdiffrast\nvdiffrast\common\cudaraster\impl\RasterImpl.cu
+build C$:\_myDrive\repos\nvdiffrast\build\temp.win-amd64-cpython-311\Release\nvdiffrast/common/cudaraster/impl/RasterImpl_cpu.obj: compile C$:\_myDrive\repos\nvdiffrast\nvdiffrast\common\cudaraster\impl\RasterImpl_cpu.cpp
+build C$:\_myDrive\repos\nvdiffrast\build\temp.win-amd64-cpython-311\Release\nvdiffrast/common/glutil.obj: compile C$:\_myDrive\repos\nvdiffrast\nvdiffrast\common\glutil.cpp
+build C$:\_myDrive\repos\nvdiffrast\build\temp.win-amd64-cpython-311\Release\nvdiffrast/common/interpolate.obj: cuda_compile C$:\_myDrive\repos\nvdiffrast\nvdiffrast\common\interpolate.cu
+build C$:\_myDrive\repos\nvdiffrast\build\temp.win-amd64-cpython-311\Release\nvdiffrast/common/rasterize.obj: cuda_compile C$:\_myDrive\repos\nvdiffrast\nvdiffrast\common\rasterize.cu
+build C$:\_myDrive\repos\nvdiffrast\build\temp.win-amd64-cpython-311\Release\nvdiffrast/common/rasterize_gl.obj: compile C$:\_myDrive\repos\nvdiffrast\nvdiffrast\common\rasterize_gl.cpp
+build C$:\_myDrive\repos\nvdiffrast\build\temp.win-amd64-cpython-311\Release\nvdiffrast/common/texture.obj: cuda_compile C$:\_myDrive\repos\nvdiffrast\nvdiffrast\common\texture.cu
+build C$:\_myDrive\repos\nvdiffrast\build\temp.win-amd64-cpython-311\Release\nvdiffrast/common/texture_cpu.obj: compile C$:\_myDrive\repos\nvdiffrast\nvdiffrast\common\texture_cpu.cpp
+build C$:\_myDrive\repos\nvdiffrast\build\temp.win-amd64-cpython-311\Release\nvdiffrast/torch/torch_antialias.obj: compile C$:\_myDrive\repos\nvdiffrast\nvdiffrast\torch\torch_antialias.cpp
+build C$:\_myDrive\repos\nvdiffrast\build\temp.win-amd64-cpython-311\Release\nvdiffrast/torch/torch_bindings.obj: compile C$:\_myDrive\repos\nvdiffrast\nvdiffrast\torch\torch_bindings.cpp
+build C$:\_myDrive\repos\nvdiffrast\build\temp.win-amd64-cpython-311\Release\nvdiffrast/torch/torch_bindings_gl.obj: compile C$:\_myDrive\repos\nvdiffrast\nvdiffrast\torch\torch_bindings_gl.cpp
+build C$:\_myDrive\repos\nvdiffrast\build\temp.win-amd64-cpython-311\Release\nvdiffrast/torch/torch_interpolate.obj: compile C$:\_myDrive\repos\nvdiffrast\nvdiffrast\torch\torch_interpolate.cpp
+build C$:\_myDrive\repos\nvdiffrast\build\temp.win-amd64-cpython-311\Release\nvdiffrast/torch/torch_rasterize.obj: compile C$:\_myDrive\repos\nvdiffrast\nvdiffrast\torch\torch_rasterize.cpp
+build C$:\_myDrive\repos\nvdiffrast\build\temp.win-amd64-cpython-311\Release\nvdiffrast/torch/torch_rasterize_gl.obj: compile C$:\_myDrive\repos\nvdiffrast\nvdiffrast\torch\torch_rasterize_gl.cpp
+build C$:\_myDrive\repos\nvdiffrast\build\temp.win-amd64-cpython-311\Release\nvdiffrast/torch/torch_texture.obj: compile C$:\_myDrive\repos\nvdiffrast\nvdiffrast\torch\torch_texture.cpp
+
+
+
+
+
+
+
+
