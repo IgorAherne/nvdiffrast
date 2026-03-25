@@ -30,9 +30,10 @@ Steps:
    Note the `\x64` and the `64` in the above 2 commands. We'll be building for x64.
 
 7) This should have made `cl.exe` discoverable, which is important for compilation.
+8) Add support for cards (GTX 980, 1080, RTX 2000, etc):  `set TORCH_CUDA_ARCH_LIST=5.2 6.1 7.5 8.0 8.6 8.9 9.0+PTX`
 
-8) `pip install torch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 --index-url https://download.pytorch.org/whl/cu118`
-9) `pip install ninja`
+9) `pip install torch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 --index-url https://download.pytorch.org/whl/cu118`
+10) `pip install ninja`
 
 build the .pyd:
 
